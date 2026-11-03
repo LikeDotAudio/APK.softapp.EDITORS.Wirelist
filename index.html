@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wirelist & Cable Schedule Editor — APK.audio</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f1218; color: #e2e8f0; margin: 0; padding: 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #283348; padding-bottom: 12px; margin-bottom: 20px; }
+    .card { background: #171d27; border: 1px solid #283348; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 10px; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid #222c3d; font-family: monospace; }
+    button { background: #0284c7; color: #fff; border: 1px solid #38bdf8; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-size:20px;">📜</span>
+      <h2>Wirelist & Cable Schedule Editor</h2>
+    </div>
+    <button id="btn-export">Export Wirelist CSV</button>
+  </header>
+
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-size:14px; text-transform:uppercase; color:#94a3b8;">Cable Run Database</h3>
+      <div style="font-size:13px; color:#38bdf8; font-weight:600;" id="total-length">Total Cable: 275 ft</div>
+    </div>
+    <table>
+      <thead><tr><th>Wire #</th><th>Cable Type</th><th>Length</th><th>Origin</th><th>Destination</th><th>Status</th></tr></thead>
+      <tbody id="wire-rows"></tbody>
+    </table>
+  </div>
+
+  <script type="module">
+    import { WirelistModel } from './js/wirelistApp.js';
+    const model = new WirelistModel();
+    const tbody = document.getElementById('wire-rows');
+
+    model.wires.forEach(w => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><b>${w.id}</b></td><td>${w.type}</td><td>${w.lenFt} ft</td><td>${w.from}</td><td>${w.to}</td><td style="color:#34d399;">● ${w.status}</td>`;
+      tbody.appendChild(tr);
+    });
+
+    document.getElementById('total-length').textContent = `Total Cable: ${model.getTotalLength()} ft`;
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      const header = 'WireNumber,Type,LengthFt,Origin,Destination,Status';
+      const rows = model.wires.map(w => `"${w.id}","${w.type}",${w.lenFt},"${w.from}","${w.to}","${w.status}"`);
+      const csv = [header, ...rows].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'facility-wirelist.csv';
+      a.click();
+    });
+  </script>
+</body>
+</html>

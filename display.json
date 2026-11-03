@@ -1,0 +1,8 @@
+{
+  "name": "Wirelist & Cable Schedule Editor",
+  "icon": "📜",
+  "group": "Design",
+  "subGroup": "Cables & Wiring",
+  "description": "Wirelist & Cable Schedule Editor: comprehensive facility wire schedule manager; tracks wire numbers, cable types (Belden, Mogami, Gepco, Cat6A), lengths, origins, destinations, pull boxes, and termination status.",
+  "app": "APK:Softapps/EDITORS/EDITORS.Wirelist/index.html"
+}
