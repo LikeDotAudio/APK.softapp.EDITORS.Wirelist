@@ -3,11 +3,10 @@
 /* wirelistApp.js — the Wirelist editor. The block goes in and out over
    cad.like.audio/host@1 (window.APKSoftapp.connectHost, vendor/apk-softapp/);
    the schedule is APKTable 'wirelist-runs' (vendor/apk-table/); "Discovered"
-   lists what the bus knows (js/discoveredPanel.js, kinds in config/discovery.json)
+   lists what the bus knows (APKSoftapp.discoveredPanel, kinds in config/discovery.json)
    and starts a run at any of them. */
 
 import { WirelistModel, WIRELIST_BLOCK_TYPE, WIRE_STATUSES, FT_TO_M } from './wirelistModel.js';
-import { DiscoveredPanel } from './discoveredPanel.js';
 
 export class WirelistApp {
   constructor() {
@@ -23,13 +22,36 @@ export class WirelistApp {
       onLoad: (block, meta) => this.handleBlockLoaded(block, meta),
       onRequest: () => this.model.toBlock(),
     });
-    this.discovered = new DiscoveredPanel({
-      tableId: 'wirelist-discovered',
-      tableHost: document.getElementById('discovered-table'),
-      statusEl: document.getElementById('discovered-status'),
-      configUrl: new URL('../config/discovery.json', import.meta.url),
-      pickLabel: 'Run from here',
-      onPick: (thing) => { this.model.addFromThing(thing); this.changed(); },
+    // the Discovered panel is the shared client's (ROAD-3502); start() draws it once, on first show
+    this.discovered = {
+      start: () => (this.discoveredRun ||= window.APKSoftapp?.discoveredPanel(document.getElementById('discovered-table'), {
+        id: 'wirelist-discovered',
+        status: document.getElementById('discovered-status'),
+        configUrl: new URL('../config/discovery.json', import.meta.url),
+        pickLabel: 'Run from here',
+        onPick: (thing) => { this.model.addFromThing(thing); this.changed(); },
+      })),
+    };
+    S.describe({
+      name: 'Wirelist Editor',
+      does: 'Keeps the facility cable schedule: every run with its type, length, both ends, signal, colour and install status, with the total length and count.',
+      inputs: [
+        { name: 'Wirelist block', from: 'the CAD drawing when opened from the CAD', kind: 'cad' },
+        { name: 'Block file', from: 'a .json file picked with Open (a wirelist block, or a bare list of runs)', kind: 'file' },
+        { name: 'On the network', from: 'what the bus has discovered; which kinds show is config/discovery.json', kind: 'bus' },
+      ],
+      outputs: [
+        { name: 'Wirelist block', to: 'the CAD drawing on Save & Return, or a .json download when standalone', kind: 'file' },
+        { name: 'Wirelist CSV', to: 'facility_wirelist.csv download (Export CSV)', kind: 'file' },
+      ],
+      controls: [
+        { name: 'Add cable run', how: '+ Add Cable Run, then edit its cells; or Run from here on a Discovered row' },
+        { name: 'Edit / delete a run', how: 'Edit the cell or delete the row in the table' },
+        { name: 'Search', how: 'Type in the search box to filter runs' },
+        { name: 'Discovered', how: 'Top-bar button: show what is on the network' },
+        { name: 'Export CSV / Save & Return / Close', how: 'Buttons above the table and in the top bar' },
+      ],
+      problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing'],
     });
     this.attachEvents();
     this.render();
@@ -95,10 +117,18 @@ export class WirelistApp {
   }
 
   handleBlockLoaded(block, meta = {}) {
-    if (!this.model.fromBlock(block)) return;
+    if (!this.model.fromBlock(block)) {
+      window.APKSoftapp.showProblem('bad_input', {
+        subject: meta.title || meta.blockName || 'Wirelist block',
+        detail: 'This is not a wirelist: it has no "wires" list.',
+        fix: ['Open a .json saved by this editor (a block with "wires", or a bare list of runs), or start one with + Add Cable Run.'],
+      });
+      return false;
+    }
     const tag = document.getElementById('block-tag');
     if (tag && (meta.title || meta.blockName)) tag.textContent = meta.title || meta.blockName;
     this.render();
+    return true;
   }
 
   saveBlock() {
@@ -127,15 +157,19 @@ export class WirelistApp {
     input.onchange = (e) => {
       const file = e.target.files[0];
       if (!file) return;
+      const S = window.APKSoftapp;
       const reader = new FileReader();
       reader.onload = (re) => {
+        let block;
         try {
-          this.handleBlockLoaded(JSON.parse(re.target.result), { title: file.name });
-          this.host.changed(this.model.toBlock());
+          block = JSON.parse(re.target.result);
         } catch (err) {
-          alert('Invalid JSON wirelist block');
+          S.showProblem('bad_json', { subject: file.name, detail: err.message, onRetry: () => this.promptOpen() });
+          return;
         }
+        if (this.handleBlockLoaded(block, { title: file.name })) this.host.changed(this.model.toBlock());
       };
+      reader.onerror = () => S.showProblem('file_unreadable', { subject: file.name, detail: reader.error && reader.error.message, onRetry: () => this.promptOpen() });
       reader.readAsText(file);
     };
     input.click();
