@@ -6,7 +6,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { WirelistModel, WIRELIST_BLOCK_TYPE } from '../js/wirelistModel.js';
-import { thingRow } from '../js/discoveredPanel.js';
 import { world, roundTrip, ORIGIN, PROTOCOL } from './softapp-harness.mjs';
 
 const connect = (model) => (S) => S.connectHost({
@@ -47,5 +46,5 @@ test('Wirelist: a run from a discovered thing carries its MAC, not its IP', () =
   assert.equal(wire.fromMac, t.mac);
   assert.ok(!JSON.stringify(wire).includes('10.1.1.1'));
   assert.notEqual(wire.id, model.wires[0].id);
-  assert.equal(thingRow(t).state, 'kinda');
+  assert.equal(world().S.thingRow(t).state, 'kinda');   // the shared Discovered panel's row
 });
