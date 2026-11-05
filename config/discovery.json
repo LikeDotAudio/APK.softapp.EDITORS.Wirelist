@@ -1,0 +1,4 @@
+{
+  "_about": "Which discovered things the Wirelist's 'On the network' panel lists (a run can start at any of them). kinds: case-insensitive substrings of a protocol name, a scanner kind segment or a device_class (APKSoftapp.discovered). An empty list shows everything on the bus. Tunable only: no code holds a device list.",
+  "kinds": []
+}

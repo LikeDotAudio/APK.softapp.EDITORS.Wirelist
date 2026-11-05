@@ -1,6 +1,12 @@
 // Part of the APK.audio project — http://APK.audio — made by Anthony Kuzub
 // MIT Licence. Free, for everyone, for ever. Full text in LICENSE at the root.
 
+export const WIRELIST_BLOCK_TYPE = 'wirelist';
+export const WIRE_STATUSES = ['Unpulled', 'Pulled', 'Terminated', 'Verified'];
+export const FT_TO_M = 0.3048;   // exact, by definition of the international foot (1959)
+
+const num = (v, dflt) => (v !== '' && v !== null && Number.isFinite(Number(v)) ? Number(v) : dflt);
+
 export class WirelistModel {
   constructor() {
     this.wires = [
@@ -15,6 +21,70 @@ export class WirelistModel {
   }
 
   getTotalLength() {
-    return this.wires.reduce((acc, w) => acc + (w.lenFt || 0), 0);
+    return this.wires.reduce((acc, w) => acc + num(w.lenFt, 0), 0);
+  }
+
+  nextId() {
+    let n = this.wires.length + 1;
+    const taken = new Set(this.wires.map((w) => w.id));
+    while (taken.has(`W-${String(n).padStart(3, '0')}`)) n++;
+    return `W-${String(n).padStart(3, '0')}`;
+  }
+
+  addWire(w = {}) {
+    const wire = {
+      id: w.id || this.nextId(),
+      type: w.type ?? 'Cat6A STP',
+      lenFt: num(w.lenFt, 0),
+      from: w.from ?? '',
+      to: w.to ?? '',
+      status: w.status || 'Unpulled',
+      signal: w.signal ?? '',
+      color: w.color ?? '',
+    };
+    for (const k of ['fromMac', 'fromSerial']) if (w[k]) wire[k] = String(w[k]);
+    this.wires.push(wire);
+    return wire;
+  }
+
+  removeWire(index) {
+    return index >= 0 && index < this.wires.length ? this.wires.splice(index, 1)[0] : null;
+  }
+
+  updateWire(index, field, value) {
+    const w = this.wires[index];
+    if (!w) return;
+    w[field] = field === 'lenFt' ? Math.max(0, num(value, 0)) : value;
+  }
+
+  /** A new run starting at a discovered thing; the far end is left for the user. Keyed by MAC / serial, never IP. */
+  addFromThing(t = {}) {
+    return this.addWire({
+      from: t.name || t.model || t.mac || t.serial || '',
+      to: '',
+      lenFt: 0,
+      fromMac: t.mac || '',
+      fromSerial: t.serial || '',
+    });
+  }
+
+  toBlock() {
+    const wires = JSON.parse(JSON.stringify(this.wires));
+    const totalLengthFt = this.getTotalLength();
+    return {
+      type: WIRELIST_BLOCK_TYPE,
+      wires,
+      totalLengthFt,
+      totalLengthM: Math.round(totalLengthFt * FT_TO_M * 1000) / 1000,
+      totalCables: wires.length,
+    };
+  }
+
+  fromBlock(block) {
+    if (!block) return false;
+    const raw = Array.isArray(block) ? block : block.wires;
+    if (!Array.isArray(raw)) return false;
+    this.wires = JSON.parse(JSON.stringify(raw));
+    return true;
   }
 }
