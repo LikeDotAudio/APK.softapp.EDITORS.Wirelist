@@ -1,6 +1,6 @@
 {
   "name": "wirelist-schedule-editor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Wirelist & Cable Schedule Editor on APK.audio",
   "type": "module",
   "scripts": {
