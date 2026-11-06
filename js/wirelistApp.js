@@ -6,10 +6,13 @@
    lists what the bus knows (APKSoftapp.discoveredPanel, kinds in config/discovery.json)
    and starts a run at any of them. Open takes a wirelist .json or an IFC model (.ifc), and
    Open Bench reads the bench's model (GET /api/bim/bench.ifc): the runs are then a query over
-   its IfcRelConnectsPorts (js/wirelistIfc.js, the contracts STEP codec in js/ifc/step.mjs). */
+   its IfcRelConnectsPorts (js/wirelistIfc.js, the contracts STEP codec in js/ifc/step.mjs). Save,
+   standalone, writes the block AND its .ifc twin (js/wirelistToIfc.js) through APKSoftapp.saveModel;
+   in the CAD, Save & Return hands the block back as before. */
 
 import { WirelistModel, WIRELIST_BLOCK_TYPE, WIRELIST_COLUMNS, FT_TO_M } from './wirelistModel.js';
 import { wirelistFromIfc, schemaOf } from './wirelistIfc.js';
+import { wirelistToIfc } from './wirelistToIfc.js';
 
 export const BENCH_IFC_URL = '/api/bim/bench.ifc';
 
@@ -48,7 +51,8 @@ export class WirelistApp {
         { name: 'On the network', from: 'what the bus has discovered; which kinds show is config/discovery.json', kind: 'bus' },
       ],
       outputs: [
-        { name: 'Wirelist block', to: 'the CAD drawing on Save & Return, or a .json download when standalone', kind: 'file' },
+        { name: 'Wirelist block', to: 'the CAD drawing on Save & Return; standalone, wirelist.json beside its twin', kind: 'file' },
+        { name: 'IFC twin', to: 'wirelist.ifc (IFC4X3_ADD2) with the .json when standalone: each run an IfcCableSegment with two end ports, joined by IfcRelConnectsPorts', kind: 'file' },
         { name: 'Wirelist CSV', to: 'facility_wirelist.csv download (Export CSV): every column, with both connectors and the system', kind: 'file' },
       ],
       controls: [
@@ -59,7 +63,7 @@ export class WirelistApp {
         { name: 'Discovered', how: 'Top-bar button: show what is on the network' },
         { name: 'Export CSV / Save & Return / Close', how: 'Buttons above the table and in the top bar' },
       ],
-      problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing', 'http_not_found'],
+      problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing', 'http_not_found', 'save_failed'],
     });
     this.attachEvents();
     this.render();
@@ -132,12 +136,15 @@ export class WirelistApp {
     return true;
   }
 
-  saveBlock() {
+  /** In the CAD: the block back to the drawing. Standalone: the block and its .ifc twin, both or neither. */
+  async saveBlock() {
     const block = this.model.toBlock();
-    this.host.save(block, {
-      title: `Wirelist (${block.totalCables} Runs · ${block.totalLengthFt} ft)`,
-      filename: 'wirelist',
-    });
+    const meta = { title: `Wirelist (${block.totalCables} Runs · ${block.totalLengthFt} ft)`, filename: 'wirelist' };
+    const S = window.APKSoftapp;
+    if (this.host.embedded || typeof S.saveModel !== 'function') return this.host.save(block, meta);
+    const r = await S.saveModel(block, { name: meta.filename, toIfc: (b) => wirelistToIfc(b, { name: meta.filename }) });
+    if (!r.ok && !r.cancelled) S.showProblem(r.problem || 'save_failed', { onRetry: () => this.saveBlock() });
+    return r.ok ? r.via : '';
   }
 
   render() {

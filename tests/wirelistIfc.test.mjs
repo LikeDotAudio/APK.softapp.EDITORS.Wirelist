@@ -61,7 +61,7 @@ test('a cable row carries its length in mm, colour, status and part; the length 
     const got = byConn.get(want.connection);
     assert.equal(got.id, want.cable, 'the wire # is the cable tag');
     assert.equal(got.lengthMm, want.lengthMm);
-    assert.equal(got.lenFt, Math.round((want.lengthMm / 304.8) * 10) / 10);
+    assert.equal(got.lenFt, Math.round((want.lengthMm / 304.8) * 1000) / 1000);
     assert.equal(got.color, want.color);
     assert.equal(got.status, want.status);
     if (want.cablePart) assert.notEqual(got.type, 'Cable', 'a typed cable names its type');

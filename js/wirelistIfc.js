@@ -18,7 +18,10 @@
    port ('<terminal> / <id>', APK_Terminal.FansOutOf) answers for its terminal. The system is the
    IfcDistributionSystem (IfcRelAssignsToGroup) holding the cable, else holding both devices — the
    one whose Pset_DistributionSystemCommon.Reference is <domain>/<medium>/… when there are several.
-   Lengths are mm (Qto_CableSegmentBaseQuantities.Length, scaled by the file's length unit). */
+   Lengths are mm (Qto_CableSegmentBaseQuantities.Length, scaled by the file's length unit); the feet
+   column is derived from them (to 0.001 ft). The device a run starts at gives fromMac / fromSerial
+   (APK_Identity.MacAddress, Pset_ManufacturerOccurrence.SerialNumber). js/wirelistToIfc.js writes the
+   file this reads back to the same runs. */
 
 import * as ifc from './ifc/step.mjs';
 import { FT_TO_M, WIRE_STATUSES } from './wirelistModel.js';
@@ -153,6 +156,15 @@ export function wirelistFromIfc(input) {
     return '';
   };
 
+  /** Who the device a run starts at IS (APK_Identity.MacAddress, Pset_ManufacturerOccurrence.SerialNumber), never an IP. */
+  const identity = (el) => {
+    if (!el) return {};
+    const s = psets(el);
+    const mac = text(s.APK_Identity?.MacAddress);
+    const serial = text(s.Pset_ManufacturerOccurrence?.SerialNumber);
+    return { ...(mac ? { fromMac: mac } : {}), ...(serial ? { fromSerial: serial } : {}) };
+  };
+
   const row = ({ rel, cable, a, b, conn }) => {
     const A = end(a);
     const B = end(b);
@@ -173,7 +185,7 @@ export function wirelistFromIfc(input) {
         || (text(cable.args[2]) !== connection && text(cable.args[2])) || 'Cable'))
         || [kind, medium].filter(Boolean).join(', ') || 'link',
       lengthMm,
-      lenFt: lengthMm == null ? 0 : Math.round((lengthMm / 1000 / FT_TO_M) * 10) / 10,
+      lenFt: lengthMm == null ? 0 : Math.round((lengthMm / 1000 / FT_TO_M) * 1000) / 1000,
       from: [A.device, A.port].filter(Boolean).join(' / '),
       to: [B.device, B.port].filter(Boolean).join(' / '),
       fromDevice: A.device, fromPort: A.port, fromConnector: A.connector,
@@ -185,6 +197,7 @@ export function wirelistFromIfc(input) {
       status: WIRE_STATUSES.includes(status) ? status : '',
       kind,
       medium,
+      ...identity(A.element),
       source: 'ifc',
     };
   };
