@@ -13,6 +13,7 @@
 import { WirelistModel, WIRELIST_BLOCK_TYPE, WIRELIST_COLUMNS, FT_TO_M } from './wirelistModel.js';
 import { wirelistFromIfc, schemaOf } from './wirelistIfc.js';
 import { wirelistToIfc } from './wirelistToIfc.js';
+import { wirelistRowIfc } from './wirelistRowIfc.js';
 
 export const BENCH_IFC_URL = '/api/bim/bench.ifc';
 
@@ -54,6 +55,7 @@ export class WirelistApp {
         { name: 'Wirelist block', to: 'the CAD drawing on Save & Return; standalone, wirelist.json beside its twin', kind: 'file' },
         { name: 'IFC twin', to: 'wirelist.ifc (IFC4X3_ADD2) with the .json when standalone: each run an IfcCableSegment with two end ports, joined by IfcRelConnectsPorts', kind: 'file' },
         { name: 'Wirelist CSV', to: 'facility_wirelist.csv download (Export CSV): every column, with both connectors and the system', kind: 'file' },
+        { name: 'Wirelist IFC', to: 'facility_wirelist.ifc download (Export IFC): the runs shown, each an IfcCableSegment with its length and APK_Connection (wirelistRowIfc.js)', kind: 'file' },
       ],
       controls: [
         { name: 'Open / Open Bench', how: 'Open a .json or .ifc; Open Bench reads the bench model from the BIM server' },
@@ -61,7 +63,7 @@ export class WirelistApp {
         { name: 'Edit / delete a run', how: 'Edit the cell or delete the row in the table' },
         { name: 'Search', how: 'Type in the search box to filter runs' },
         { name: 'Discovered', how: 'Top-bar button: show what is on the network' },
-        { name: 'Export CSV / Save & Return / Close', how: 'Buttons above the table and in the top bar' },
+        { name: 'Export CSV / Export IFC / Save & Return / Close', how: 'Buttons above the table and in the top bar' },
       ],
       problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing', 'http_not_found', 'save_failed'],
     });
@@ -80,6 +82,7 @@ export class WirelistApp {
     this.totalCountEl = document.getElementById('total-count');
     this.btnAddWire = document.getElementById('btn-add-wire');
     this.btnExportCsv = document.getElementById('btn-export');
+    this.btnExportIfc = document.getElementById('btn-export-ifc');
     this.searchInput = document.getElementById('search-input');
   }
 
@@ -87,6 +90,7 @@ export class WirelistApp {
     this.table = window.APKTable.create(document.getElementById('wire-table'), {
       id: 'wirelist-runs',
       toolbar: false,
+      ifc: wirelistRowIfc(this.model),   // Export IFC beside Export CSV: each run an IfcCableSegment (wirelistRowIfc.js)
       columns: WIRELIST_COLUMNS,
       rows: this.model.wires,
       onEdit: (i, key, value) => {   // the cell already shows it; only the totals move
@@ -114,6 +118,7 @@ export class WirelistApp {
       this.changed();
     });
     this.btnExportCsv?.addEventListener('click', () => this.table.exportCsv('facility_wirelist.csv'));
+    this.btnExportIfc?.addEventListener('click', () => this.table.exportIfc('facility_wirelist.ifc'));
   }
 
   changed() {
