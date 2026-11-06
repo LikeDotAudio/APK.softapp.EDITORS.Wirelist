@@ -4,9 +4,14 @@
    cad.like.audio/host@1 (window.APKSoftapp.connectHost, vendor/apk-softapp/);
    the schedule is APKTable 'wirelist-runs' (vendor/apk-table/); "Discovered"
    lists what the bus knows (APKSoftapp.discoveredPanel, kinds in config/discovery.json)
-   and starts a run at any of them. */
+   and starts a run at any of them. Open takes a wirelist .json or an IFC model (.ifc), and
+   Open Bench reads the bench's model (GET /api/bim/bench.ifc): the runs are then a query over
+   its IfcRelConnectsPorts (js/wirelistIfc.js, the contracts STEP codec in js/ifc/step.mjs). */
 
-import { WirelistModel, WIRELIST_BLOCK_TYPE, WIRE_STATUSES, FT_TO_M } from './wirelistModel.js';
+import { WirelistModel, WIRELIST_BLOCK_TYPE, WIRELIST_COLUMNS, FT_TO_M } from './wirelistModel.js';
+import { wirelistFromIfc, schemaOf } from './wirelistIfc.js';
+
+export const BENCH_IFC_URL = '/api/bim/bench.ifc';
 
 export class WirelistApp {
   constructor() {
@@ -38,20 +43,23 @@ export class WirelistApp {
       inputs: [
         { name: 'Wirelist block', from: 'the CAD drawing when opened from the CAD', kind: 'cad' },
         { name: 'Block file', from: 'a .json file picked with Open (a wirelist block, or a bare list of runs)', kind: 'file' },
+        { name: 'IFC model', from: 'an .ifc picked with Open: every IfcRelConnectsPorts becomes a run (cable tag, both ends with connector, system)', kind: 'file' },
+        { name: 'Bench model', from: 'GET ' + BENCH_IFC_URL + ' (DATABASE.server.BIM) with Open Bench', kind: 'http' },
         { name: 'On the network', from: 'what the bus has discovered; which kinds show is config/discovery.json', kind: 'bus' },
       ],
       outputs: [
         { name: 'Wirelist block', to: 'the CAD drawing on Save & Return, or a .json download when standalone', kind: 'file' },
-        { name: 'Wirelist CSV', to: 'facility_wirelist.csv download (Export CSV)', kind: 'file' },
+        { name: 'Wirelist CSV', to: 'facility_wirelist.csv download (Export CSV): every column, with both connectors and the system', kind: 'file' },
       ],
       controls: [
+        { name: 'Open / Open Bench', how: 'Open a .json or .ifc; Open Bench reads the bench model from the BIM server' },
         { name: 'Add cable run', how: '+ Add Cable Run, then edit its cells; or Run from here on a Discovered row' },
         { name: 'Edit / delete a run', how: 'Edit the cell or delete the row in the table' },
         { name: 'Search', how: 'Type in the search box to filter runs' },
         { name: 'Discovered', how: 'Top-bar button: show what is on the network' },
         { name: 'Export CSV / Save & Return / Close', how: 'Buttons above the table and in the top bar' },
       ],
-      problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing'],
+      problems: ['file_unreadable', 'bad_json', 'bad_input', 'bus_missing', 'http_not_found'],
     });
     this.attachEvents();
     this.render();
@@ -59,6 +67,7 @@ export class WirelistApp {
 
   initElements() {
     this.btnOpen = document.getElementById('btn-open');
+    this.btnOpenBench = document.getElementById('btn-open-bench');
     this.btnSave = document.getElementById('btn-save');
     this.btnClose = document.getElementById('btn-close');
     this.btnSyncDiscovered = document.getElementById('btn-sync-discovered');
@@ -74,16 +83,7 @@ export class WirelistApp {
     this.table = window.APKTable.create(document.getElementById('wire-table'), {
       id: 'wirelist-runs',
       toolbar: false,
-      columns: [
-        { key: 'id', label: 'Wire #', mono: true },
-        { key: 'type', label: 'Cable Type / Model' },
-        { key: 'lenFt', label: 'Len (ft)', type: 'number' },
-        { key: 'from', label: 'Origin / Source' },
-        { key: 'to', label: 'Destination' },
-        { key: 'signal', label: 'Signal Type' },
-        { key: 'color', label: 'Color' },
-        { key: 'status', label: 'Status', type: 'select', options: WIRE_STATUSES },
-      ],
+      columns: WIRELIST_COLUMNS,
       rows: this.model.wires,
       onEdit: (i, key, value) => {   // the cell already shows it; only the totals move
         this.model.updateWire(i, key, value);
@@ -97,6 +97,7 @@ export class WirelistApp {
 
   attachEvents() {
     this.btnOpen?.addEventListener('click', () => this.promptOpen());
+    this.btnOpenBench?.addEventListener('click', () => this.openBench());
     this.btnSave?.addEventListener('click', () => this.saveBlock());
     this.btnClose?.addEventListener('click', () => this.host.close());
     this.btnSyncDiscovered?.addEventListener('click', () => {
@@ -150,19 +151,63 @@ export class WirelistApp {
     this.totalCountEl.textContent = `${this.model.wires.length} Cable Runs`;
   }
 
-  promptOpen() {
+  /** Runs from an IFC model's IfcRelConnectsPorts; false (and a problem card) when it is not one. */
+  loadIfc(text, name) {
+    let rows;
+    let schema = '';
+    try {
+      rows = wirelistFromIfc(text);
+      schema = schemaOf(text) || '';
+    } catch (err) {
+      window.APKSoftapp.showProblem('bad_input', { subject: name, detail: err.message, fix: ['Open an .ifc written by an IFC tool (ISO 10303-21), or the bench model with Open Bench.'] });
+      return false;
+    }
+    if (!this.handleBlockLoaded({ wires: rows }, { title: `${name} · ${schema} · ${rows.length} runs` })) return false;
+    this.host.changed(this.model.toBlock());
+    return true;
+  }
+
+  /** The bench as DATABASE.server.BIM keeps it (bench.ifc, its stored twin of bench.json). */
+  async openBench() {
+    const S = window.APKSoftapp;
+    if (S.openModel) {
+      const r = await S.openModel({ url: BENCH_IFC_URL });
+      if (!r.ok) { if (!r.cancelled) S.showProblem(r.problem, { onRetry: () => this.openBench() }); return false; }
+      return this.loadIfc(r.text, 'bench.ifc');
+    }
+    try {
+      const res = await fetch(BENCH_IFC_URL, { headers: { Accept: 'model/step' } });
+      if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${BENCH_IFC_URL}`), { status: res.status });
+      return this.loadIfc(await res.text(), 'bench.ifc');
+    } catch (err) {
+      S.showProblem(err.status === 404 ? 'http_not_found' : 'file_unreadable', { subject: BENCH_IFC_URL, detail: err.message, onRetry: () => this.openBench() });
+      return false;
+    }
+  }
+
+  /** Open a wirelist .json or an IFC model (.ifc; an ISO 10303-21 header decides for any other name). */
+  async promptOpen() {
+    const S = window.APKSoftapp;
+    if (S.openModel) {   // the shared Open Model (apk-softapp.js) once vendor/apk-softapp carries it
+      const r = await S.openModel({});
+      if (!r.ok) { if (!r.cancelled) S.showProblem(r.problem, { onRetry: () => this.promptOpen() }); return; }
+      if (r.kind === 'ifc') this.loadIfc(r.text, r.name);
+      else if (this.handleBlockLoaded(r.model, { title: r.name })) this.host.changed(this.model.toBlock());
+      return;
+    }
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = '.json';
+    input.accept = '.json,.ifc,application/json,model/step';
     input.onchange = (e) => {
       const file = e.target.files[0];
       if (!file) return;
-      const S = window.APKSoftapp;
       const reader = new FileReader();
       reader.onload = (re) => {
+        const text = String(re.target.result);
+        if (/\.ifc$/i.test(file.name) || /^\s*ISO-10303-21\s*;/.test(text)) { this.loadIfc(text, file.name); return; }
         let block;
         try {
-          block = JSON.parse(re.target.result);
+          block = JSON.parse(text);
         } catch (err) {
           S.showProblem('bad_json', { subject: file.name, detail: err.message, onRetry: () => this.promptOpen() });
           return;

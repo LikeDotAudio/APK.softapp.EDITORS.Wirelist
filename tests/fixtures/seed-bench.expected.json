@@ -1,0 +1,2651 @@
+{
+ "source": "DATABASE.server.BIM bim/bench_ifc.py, seed bench + Bench:X1, Bench:X2 patched through Bench.put_connection",
+ "ifcopenshell": true,
+ "rows": [
+  {
+   "connection": "L1",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U107",
+    "port": "uplink",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L2",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U1",
+    "port": "enp5s0f0",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L3",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U6",
+    "port": "192.168.32.233:554",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L4",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U7",
+    "port": "44.44.44.161:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L5",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U8",
+    "port": "44.44.44.161:32168",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L6",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U8",
+    "port": "44.44.44.164:32168",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L7",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U9",
+    "port": "44.44.44.160:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L8",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U9",
+    "port": "44.44.44.165:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L9",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U10",
+    "port": "44.44.44.155:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L10",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U11",
+    "port": "44.44.44.152:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L11",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U11",
+    "port": "44.44.44.160:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L12",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U12",
+    "port": "44.44.44.154:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L13",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U13",
+    "port": "44.44.44.150",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L14",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U13",
+    "port": "44.44.44.150:49153",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L15",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U13",
+    "port": "44.44.44.150:7000",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L16",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U14",
+    "port": "44.44.44.163:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L17",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U15",
+    "port": "44.44.44.164:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L18",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U16",
+    "port": "44.44.44.155:32178",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L19",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U17",
+    "port": "44.44.44.164:32038",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L20",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U17",
+    "port": "44.44.44.165:32038",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L21",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wireless",
+   "signal": "network",
+   "a": {
+    "device": "U18",
+    "port": "44.44.44.154:32025",
+    "connector": ""
+   },
+   "b": {
+    "device": "U107",
+    "port": "cell",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wireless via U107"
+  },
+  {
+   "connection": "L22",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U36",
+    "port": "/dev/ttyS0",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L23",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U37",
+    "port": "/dev/ttyUSB0",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L24",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U38",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L25",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U39",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L26",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U40",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L27",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U41",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L28",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U42",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L29",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U43",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L30",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U44",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L31",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U45",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L32",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U46",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L33",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U47",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L34",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U48",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L35",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U49",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L36",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U50",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L37",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U51",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L38",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U52",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L39",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U53",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L40",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U54",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L41",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U55",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L42",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U56",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L43",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U57",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L44",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U58",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L45",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U59",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L46",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U60",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L47",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U61",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L48",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U62",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L49",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U63",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L50",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U64",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L51",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U65",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L52",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U66",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L53",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U67",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L54",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U68",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L55",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U69",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L56",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U70",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L57",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U71",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L58",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U72",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L59",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U73",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L60",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U74",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L61",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U75",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L62",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U76",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L63",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U77",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L64",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U78",
+    "port": "nmos-bridge:3218",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L65",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U79",
+    "port": "172.25.0.5:3212",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L66",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U80",
+    "port": "44.44.44.155:10101",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L67",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U81",
+    "port": "44.44.44.154:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L68",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U82",
+    "port": "44.44.44.164:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L69",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U83",
+    "port": "44.44.44.163:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L70",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U84",
+    "port": "44.44.44.150:51750",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L71",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U85",
+    "port": "44.44.44.150:52512",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L72",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U85",
+    "port": "44.44.44.150:56834",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L73",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U86",
+    "port": "44.44.44.150:7000",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L74",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U87",
+    "port": "44.44.44.152:554",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L75",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U87",
+    "port": "44.44.44.158:554",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L76",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U87",
+    "port": "44.44.44.158:80",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L77",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U87",
+    "port": "44.44.44.169:554",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L78",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U88",
+    "port": "44.44.44.160:445",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L79",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U88",
+    "port": "44.44.44.160:445",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L80",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L81",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:443",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L82",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:515",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L83",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:631",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L84",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:631",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L85",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:80",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L86",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U89",
+    "port": "44.44.44.166:9100",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L87",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U90",
+    "port": "44.44.44.163:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L88",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U91",
+    "port": "44.44.44.164:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L89",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U92",
+    "port": "44.44.44.161:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L90",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U93",
+    "port": "44.44.44.154:32025",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L91",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U94",
+    "port": "44.44.44.155:32178",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L92",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U95",
+    "port": "44.44.44.164:32168",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L93",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U96",
+    "port": "44.44.44.164:32038",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L94",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U97",
+    "port": "44.44.44.160:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L95",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U97",
+    "port": "44.44.44.165:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L96",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U98",
+    "port": "44.44.44.155:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L97",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U99",
+    "port": "44.44.44.154:8009",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L98",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U100",
+    "port": "44.44.44.164:22",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L99",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U101",
+    "port": "44.44.44.157:41800",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L100",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U101",
+    "port": "44.44.44.168:41800",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L101",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U102",
+    "port": "44.44.44.160:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L102",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U103",
+    "port": "44.44.44.160:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L103",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U103",
+    "port": "44.44.44.165:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L104",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U104",
+    "port": "44.44.44.161:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "L105",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U105",
+    "port": "44.44.44.155:10001",
+    "connector": ""
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L1",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U20",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L2",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U21",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L3",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U22",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L4",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U27",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L5",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U28",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L6",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U32",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L7",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U33",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Lab_Instruments:L8",
+   "cable": "",
+   "lengthMm": null,
+   "color": "",
+   "status": "",
+   "cablePart": "",
+   "kind": "assumed",
+   "medium": "wired",
+   "signal": "network",
+   "a": {
+    "device": "U34",
+    "port": "LAN",
+    "connector": "RJ45 (8P8C)"
+   },
+   "b": {
+    "device": "U106",
+    "port": "fabric",
+    "connector": ""
+   },
+   "cabled": false,
+   "system": "network wired via U106"
+  },
+  {
+   "connection": "Bench:X1",
+   "cable": "W-001",
+   "lengthMm": 1500,
+   "color": "Blue",
+   "status": "Pulled",
+   "cablePart": "",
+   "kind": "patched",
+   "medium": "wired",
+   "signal": "audio",
+   "a": {
+    "device": "U108",
+    "port": "SUB 1 OUT",
+    "connector": "terminal block"
+   },
+   "b": {
+    "device": "U1",
+    "port": "LISTENER 0",
+    "connector": ""
+   },
+   "cabled": true,
+   "system": "audio wired via U1"
+  },
+  {
+   "connection": "Bench:X2",
+   "cable": "W-002",
+   "lengthMm": 3048,
+   "color": "Black",
+   "status": "Terminated",
+   "cablePart": "ace-backstage/c-30100",
+   "kind": "patched",
+   "medium": "wired",
+   "signal": "audio",
+   "a": {
+    "device": "U108",
+    "port": "SUB 2 OUT",
+    "connector": "terminal block"
+   },
+   "b": {
+    "device": "U1",
+    "port": "LISTENER 1",
+    "connector": ""
+   },
+   "cabled": true,
+   "system": "audio wired via U1"
+  }
+ ]
+}

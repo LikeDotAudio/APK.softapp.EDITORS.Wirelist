@@ -5,6 +5,24 @@ export const WIRELIST_BLOCK_TYPE = 'wirelist';
 export const WIRE_STATUSES = ['Unpulled', 'Pulled', 'Terminated', 'Verified'];
 export const FT_TO_M = 0.3048;   // exact, by definition of the international foot (1959)
 
+/* The schedule's columns, in order — the table and its CSV export (APKTable.exportCsv) both use
+   them. A run read from an IFC model (js/wirelistIfc.js) fills the cable, connector and system
+   columns and its length in mm; a hand-made run leaves them blank. */
+export const WIRELIST_COLUMNS = [
+  { key: 'id', label: 'Wire #', mono: true },
+  { key: 'type', label: 'Cable Type / Model' },
+  { key: 'lenFt', label: 'Len (ft)', type: 'number' },
+  { key: 'lengthMm', label: 'Len (mm)', type: 'number' },
+  { key: 'from', label: 'Origin / Source' },
+  { key: 'fromConnector', label: 'Origin Connector' },
+  { key: 'to', label: 'Destination' },
+  { key: 'toConnector', label: 'Destination Connector' },
+  { key: 'system', label: 'System' },
+  { key: 'signal', label: 'Signal Type' },
+  { key: 'color', label: 'Color' },
+  { key: 'status', label: 'Status', type: 'select', options: WIRE_STATUSES },
+];
+
 const num = (v, dflt) => (v !== '' && v !== null && Number.isFinite(Number(v)) ? Number(v) : dflt);
 
 export class WirelistModel {
